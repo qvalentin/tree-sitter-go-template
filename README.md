@@ -1,8 +1,9 @@
-## Announcement 
+## Fork info 
 
-I've stopped using helm (which I mostly written this package for) on a daily basis, so I don't really keep up with the development of tree sitter, and nvim-tree-sitter. So this project won't receive any attention from me in the near future.
+Fork of [ngalaiko/tree-sitter-go-template](https://github.com/ngalaiko/tree-sitter-go-template) including patches of [msvechla](https://github.com/msvechla/tree-sitter-go-template) and additional fixes.
 
-If you are interested in mainaining the project, feel free to fork the repo, and if the fork is maintained I will gladly delegate you this repository or link it.
+Used by [helm-ls](https://github.com/mrjosh/helm-ls/)
+
 
 # tree-sitter-go-template
 
