@@ -257,16 +257,76 @@
         {
           "type": "REPEAT",
           "content": {
-            "type": "SYMBOL",
-            "name": "else_if_clause"
+            "type": "PREC_LEFT",
+            "value": 0,
+            "content": {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_left_delimiter"
+                },
+                {
+                  "type": "STRING",
+                  "value": "else if"
+                },
+                {
+                  "type": "FIELD",
+                  "name": "condition",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "_pipeline"
+                  }
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_right_delimiter"
+                },
+                {
+                  "type": "FIELD",
+                  "name": "option",
+                  "content": {
+                    "type": "REPEAT",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "_block"
+                    }
+                  }
+                }
+              ]
+            }
           }
         },
         {
           "type": "CHOICE",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "else_clause"
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_left_delimiter"
+                },
+                {
+                  "type": "STRING",
+                  "value": "else"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_right_delimiter"
+                },
+                {
+                  "type": "FIELD",
+                  "name": "alternative",
+                  "content": {
+                    "type": "REPEAT",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "_block"
+                    }
+                  }
+                }
+              ]
             },
             {
               "type": "BLANK"
@@ -286,78 +346,6 @@
           "name": "_right_delimiter"
         }
       ]
-    },
-    "else_if_clause": {
-      "type": "PREC_RIGHT",
-      "value": 1,
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "SYMBOL",
-            "name": "_left_delimiter"
-          },
-          {
-            "type": "STRING",
-            "value": "else if"
-          },
-          {
-            "type": "FIELD",
-            "name": "condition",
-            "content": {
-              "type": "SYMBOL",
-              "name": "_pipeline"
-            }
-          },
-          {
-            "type": "SYMBOL",
-            "name": "_right_delimiter"
-          },
-          {
-            "type": "FIELD",
-            "name": "option",
-            "content": {
-              "type": "REPEAT",
-              "content": {
-                "type": "SYMBOL",
-                "name": "_block"
-              }
-            }
-          }
-        ]
-      }
-    },
-    "else_clause": {
-      "type": "PREC_RIGHT",
-      "value": 1,
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "SYMBOL",
-            "name": "_left_delimiter"
-          },
-          {
-            "type": "STRING",
-            "value": "else"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "_right_delimiter"
-          },
-          {
-            "type": "FIELD",
-            "name": "alternative",
-            "content": {
-              "type": "REPEAT",
-              "content": {
-                "type": "SYMBOL",
-                "name": "_block"
-              }
-            }
-          }
-        ]
-      }
     },
     "range_variable_definition": {
       "type": "SEQ",

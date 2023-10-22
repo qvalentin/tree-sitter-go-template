@@ -39,8 +39,7 @@ if else
     (if_action
         (function_call (identifier))
         (text)
-        (else_clause
-            (text))))
+        (text)))
 
 =============================================
 if-else
@@ -51,9 +50,8 @@ if-else
     (if_action
         (function_call (identifier))
         (text)
-        (else_if_clause
-            (function_call (identifier))
-                (text))))
+        (function_call (identifier))
+        (text)))
 
 =============================================
 if-else else
@@ -64,11 +62,9 @@ if-else else
     (if_action
         (function_call (identifier))
         (text)
-        (else_if_clause 
-            (function_call (identifier))
-                (text))
-        (else_clause
-            (text))))
+        (function_call (identifier))
+        (text)
+        (text)))
 
 =============================================
 if-else else 1
@@ -79,66 +75,25 @@ if-else else 1
     (if_action
         (function_call (identifier))
         (text)
-        (else_if_clause
-            (function_call (identifier))
-                (text))
-        (else_clause
-            (selector_expression
-              (field
-                (identifier))
-              (field_identifier)))))
+        (function_call (identifier))
+        (text)
+        (selector_expression
+          (field
+            (identifier))
+          (field_identifier))))
 
 =============================================
 if-else else 2
 =============================================
-{{if pipeline}} t1 {{ else if pipeline }} {{ pipeline }} {{ else }} t3 {{ end }}
+{{if pipeline}} t1 {{ else if pipeline }} {{ .Values.test }} {{ else }} t3 {{ end }}
 ---
 (template
     (if_action
         (function_call (identifier))
         (text)
-        (else_if_clause
-            (function_call (identifier))
-                (function_call (identifier)))
-        (else_clause
-            (text))))
-
-=============================================
-if-else else 3
-=============================================
-{{if pipeline}} t1 {{ else if pipeline }} {{ pipeline }} {{ else if pipeline }} {{ pipeline }} {{ else }} t3 {{ end }}
----
-(template
-    (if_action
         (function_call (identifier))
         (text)
-        (else_if_clause 
-            (function_call (identifier))
-                (function_call (identifier)))
-        (else_if_clause 
-            (function_call (identifier))
-                (function_call (identifier)))
-        (else_clause
-            (text))))
-
-=============================================
-if-else else 4
-=============================================
-{{if pipeline}} t1 {{ else if pipeline }} {{ pipeline }} {{ else if pipeline }} {{ pipeline }} text {{ else }} t3 {{ end }}
----
-(template
-    (if_action
-        (function_call (identifier))
-        (text)
-        (else_if_clause
-            (function_call (identifier))
-                (function_call (identifier)))
-        (else_if_clause
-            (function_call (identifier))
-            (function_call (identifier))
-            (text))
-        (else_clause
-            (text))))
+        (text)))
 
 =============================================
 range
