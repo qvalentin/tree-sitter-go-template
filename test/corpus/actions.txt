@@ -92,7 +92,10 @@ if-else else 2
         (function_call (identifier))
         (text)
         (function_call (identifier))
-        (text)
+        (selector_expression
+          (field
+            (identifier))
+          (field_identifier))
         (text)))
 
 =============================================
