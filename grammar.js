@@ -113,25 +113,29 @@ module.exports = grammar({
 
             field('consequence', repeat($._block)),
 
-            repeat(prec.left(seq(
-                $._left_delimiter,
-                'else if',
-                field('condition', $._pipeline),
-                $._right_delimiter,
-                field('option', repeat($._block)),
-            ))),
+            repeat($._else_if_clause),
 
-            optional(seq(
-                $._left_delimiter,
-                'else',
-                $._right_delimiter,
-                field('alternative', repeat($._block)),
-            )),
+            optional($._else_clause),
 
             $._left_delimiter,
             'end',
             $._right_delimiter,
         ),
+
+        _else_if_clause: $ => prec.right(1, seq(
+            $._left_delimiter,
+            'else if',
+            field('condition', $._pipeline),
+            $._right_delimiter,
+            field('option', repeat($._block)),
+        )),
+
+        _else_clause: $ => prec.right(1, seq(
+            $._left_delimiter,
+            'else',
+            $._right_delimiter,
+            field('alternative', repeat($._block)),
+        )),
 
         range_variable_definition: $ => seq(
             field('index', $.variable),
