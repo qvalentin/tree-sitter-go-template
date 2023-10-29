@@ -99,6 +99,22 @@ if-else else 2
         (text)))
 
 =============================================
+if-else else 3
+=============================================
+{{if pipeline}} t1 {{ else if pipeline }} test {{ .Values.test }} {{ end }}
+---
+(template
+    (if_action
+        (function_call (identifier))
+        (text)
+        (function_call (identifier))
+        (text)
+        (selector_expression
+          (field
+            (identifier))
+          (field_identifier))))
+
+=============================================
 range
 =============================================
 {{range pipeline}} t1 {{ end }}
