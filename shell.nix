@@ -6,6 +6,7 @@ pkgs.mkShell {
     nodePackages.node-gyp
     tree-sitter
     python3
+    graphviz
   ];
 
 }

@@ -67,9 +67,9 @@ if-else else
         (text)))
 
 =============================================
-if-else else 1
+if-else else 0
 =============================================
-{{if pipeline}} t1 {{ else if pipeline }} t2 {{ else }} {{ .Values.test }} {{ end }}
+{{if pipeline}} t1 {{ else if pipeline }} t2 {{ else }} {{ .Values.test }} test {{ end }}
 ---
 (template
     (if_action
@@ -80,18 +80,37 @@ if-else else 1
         (selector_expression
           (field
             (identifier))
-          (field_identifier))))
+          (field_identifier))
+        (text)))
 
 =============================================
-if-else else 2
+if-else else 1
 =============================================
-{{if pipeline}} t1 {{ else if pipeline }} {{ .Values.test }} {{ else }} t3 {{ end }}
+{{if pipeline}} t1 {{ else if pipeline }} t2 {{ else }} test {{ .Values.test }} {{ end }}
 ---
 (template
     (if_action
         (function_call (identifier))
         (text)
         (function_call (identifier))
+        (text)
+        (text)
+        (selector_expression
+          (field
+            (identifier))
+          (field_identifier))))
+
+=============================================
+if-else else 2
+=============================================
+{{if pipeline}} t1 {{ else if pipeline }} test {{ .Values.test }} {{ else }} t3 {{ end }}
+---
+(template
+    (if_action
+        (function_call (identifier))
+        (text)
+        (function_call (identifier))
+        (text)
         (selector_expression
           (field
             (identifier))
