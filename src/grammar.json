@@ -316,16 +316,12 @@
               "type": "REPEAT",
               "content": {
                 "type": "SYMBOL",
-                "name": "_else_if_clause_option"
+                "name": "_block"
               }
             }
           }
         ]
       }
-    },
-    "_else_if_clause_option": {
-      "type": "SYMBOL",
-      "name": "_block"
     },
     "_else_clause": {
       "type": "PREC_DYNAMIC",
@@ -346,10 +342,10 @@
             "name": "_right_delimiter"
           },
           {
-            "type": "REPEAT",
+            "type": "FIELD",
+            "name": "alternative",
             "content": {
-              "type": "FIELD",
-              "name": "alternative",
+              "type": "REPEAT",
               "content": {
                 "type": "SYMBOL",
                 "name": "_block"
