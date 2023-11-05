@@ -1,6 +1,8 @@
 const
     PREC = {
         primary: 1,
+        else_if: 1,
+        else: 2,
     },
 
     unicodeLetter = /\p{L}/,
@@ -62,7 +64,11 @@ notDoubleBracketsNoNewline = repeat1(
 module.exports = grammar({
     name: 'gotmpl',
     conflicts: $ => [
-        [$._else_if_clause_option, $._if_actions_end]
+
+        // conflict between a teplate in a else if clause and the beginning of the 
+        // else clause in not solveable with LR(1)
+        [$._else_clause],
+        [$._else_if_clause],
     ],
     rules: {
         template: $ => repeat($._block),
@@ -122,7 +128,7 @@ module.exports = grammar({
             prec.right(0, $._if_actions_end)
         ),
 
-        _else_if_clause: $ => prec.right(1, seq(
+        _else_if_clause: $ => prec.dynamic(PREC.else_if, seq(
             $._left_delimiter,
             'else if',
             field('condition', $._pipeline),
@@ -132,7 +138,7 @@ module.exports = grammar({
 
         _else_if_clause_option: $ => $._block,
 
-        _else_clause: $ => prec.right(1, seq(
+        _else_clause: $ => prec.dynamic(PREC.else, seq(
             $._left_delimiter,
             'else',
             $._right_delimiter,

@@ -284,7 +284,7 @@
       ]
     },
     "_else_if_clause": {
-      "type": "PREC_RIGHT",
+      "type": "PREC_DYNAMIC",
       "value": 1,
       "content": {
         "type": "SEQ",
@@ -328,8 +328,8 @@
       "name": "_block"
     },
     "_else_clause": {
-      "type": "PREC_RIGHT",
-      "value": 1,
+      "type": "PREC_DYNAMIC",
+      "value": 2,
       "content": {
         "type": "SEQ",
         "members": [
@@ -3600,8 +3600,10 @@
   ],
   "conflicts": [
     [
-      "_else_if_clause_option",
-      "_if_actions_end"
+      "_else_clause"
+    ],
+    [
+      "_else_if_clause"
     ]
   ],
   "precedences": [],
