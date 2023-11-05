@@ -42,6 +42,18 @@ if else
         (text)))
 
 =============================================
+if else with text and template in if
+=============================================
+{{if pipeline}} t1 {{ pipeline }} {{ else }} t2 {{ end }}
+---
+(template
+    (if_action
+        (function_call (identifier))
+        (text)
+        (function_call (identifier))
+        (text)))
+
+=============================================
 if-else
 =============================================
 {{if pipeline}} t1 {{ else if pipeline }} t2 {{ end }}
@@ -50,6 +62,19 @@ if-else
     (if_action
         (function_call (identifier))
         (text)
+        (function_call (identifier))
+        (text)))
+
+=============================================
+if-else with text and template in if
+=============================================
+{{if pipeline}} t1 {{ pipeline }} {{ else if pipeline }} t2 {{ end }}
+---
+(template
+    (if_action
+        (function_call (identifier))
+        (text)
+        (function_call (identifier))
         (function_call (identifier))
         (text)))
 
