@@ -128,7 +128,6 @@ Unfished selector_expression in argument_list
             (identifier))
         )
       )))
-
 ====================================
 Unfished selector_expression in argument_list with parenthesis
 ====================================
@@ -160,3 +159,14 @@ Unfished selector_expression in argument_list of method
             (identifier))
         ))))
 
+====================================
+Selector expression on a parenthesized pipeline
+====================================
+{{ (pipeline).Field }}
+---
+(template
+  (selector_expression
+    (parenthesized_pipeline
+      (function_call
+        (identifier)))
+    (field_identifier)))

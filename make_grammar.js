@@ -269,7 +269,8 @@ module.exports = function make_grammar(dialect) {
 
             method_call: ($) =>
                 seq(
-                    field('method', choice($.field, $.selector_expression, $.unfished_selector_expression)),
+                    // field('method', choice($.field, $.selector_expression, $.unfished_selector_expression)),
+                    field('method', choice($.field, $.selector_expression)),
                     field('arguments', $.argument_list)
                 ),
 
@@ -298,8 +299,8 @@ module.exports = function make_grammar(dialect) {
                         $.dot,
                         $.field,
                         $.variable,
-                        $.unfished_selector_expression,
-                        $.selector_expression
+                        $.selector_expression,
+                        $.unfished_selector_expression
                     )
                 ),
 
@@ -307,7 +308,8 @@ module.exports = function make_grammar(dialect) {
                 prec(
                     PREC.primary,
                     seq(
-                        field('operand', $._pipeline),
+                        field('operand',
+                            choice($.parenthesized_pipeline, $.field, $.variable, $.selector_expression)),
                         token.immediate('.'),
                         field('field', $._field_identifier)
                     )
