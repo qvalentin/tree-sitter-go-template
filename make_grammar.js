@@ -269,8 +269,7 @@ module.exports = function make_grammar(dialect) {
 
             method_call: ($) =>
                 seq(
-                    // field('method', choice($.field, $.selector_expression, $.unfished_selector_expression)),
-                    field('method', choice($.field, $.selector_expression)),
+                    field('method', choice($.field, $.selector_expression, $.unfished_selector_expression)),
                     field('arguments', $.argument_list)
                 ),
 
@@ -315,9 +314,21 @@ module.exports = function make_grammar(dialect) {
                     )
                 ),
 
+            /* this rules in soley for better error handing on cases
+             * as .Field. which is useful for auto-completion
+             *
+             * the normal rules for selector_expression does not always work to produce
+             * (MISSING field_identifier) and the behavior for errors is not consistent
+             * as described in (this is a tree-sitter limitation)
+             * https://github.com/tree-sitter/tree-sitter/issues/1870
+             * and
+             * https://github.com/tree-sitter/tree-sitter/issues/2404
+             *
+             * */
             unfished_selector_expression: ($) =>
                 seq(
-                    field('operand', $._pipeline),
+                    field('operand',
+                        choice($.parenthesized_pipeline, $.field, $.variable, $.selector_expression)),
                     token.immediate('.'),
                 ),
 
