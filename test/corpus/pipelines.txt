@@ -102,3 +102,61 @@ Method on a field with arguments
                     (identifier))
                 (field_identifier))
             (int_literal))))
+
+====================================
+Unfished selector_expression
+====================================
+{{ .Field. }}
+---
+(template
+    (unfished_selector_expression
+        (field
+            (identifier))
+        ))
+
+====================================
+Unfished selector_expression in argument_list
+====================================
+{{ not .Field. }}
+---
+(template
+  (function_call
+    (identifier)
+    (argument_list
+      (unfished_selector_expression
+        (field
+            (identifier))
+        )
+      )))
+
+====================================
+Unfished selector_expression in argument_list with parenthesis
+====================================
+{{ not (.Field. ) }}
+---
+(template
+  (function_call
+    (identifier)
+    (argument_list
+    (parenthesized_pipeline
+      (unfished_selector_expression
+        (field
+            (identifier))
+        )
+        )
+    )))
+
+====================================
+Unfished selector_expression in argument_list of method
+====================================
+{{ .Field .Field. }}
+---
+(template
+  (method_call
+    (field (identifier))
+    (argument_list
+      (unfished_selector_expression
+        (field
+            (identifier))
+        ))))
+
