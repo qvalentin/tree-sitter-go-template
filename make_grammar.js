@@ -62,7 +62,21 @@ const PREC = {
     ),
     hexFloatLiteral = seq('0', choice('x', 'X'), hexMantissa, hexExponent),
     floatLiteral = choice(decimalFloatLiteral, hexFloatLiteral),
-    imaginaryLiteral = seq(choice(decimalDigits, intLiteral, floatLiteral), 'i')
+    imaginaryLiteral = seq(choice(decimalDigits, intLiteral, floatLiteral), 'i'),
+    notDoubleBracketsNoWhitespace = repeat1(
+        choice(
+            /[^{ \t\n]/,
+            /\{[^{ \t\n]/,
+        ),
+    ),
+
+    notDoubleBracketsNoNewline = repeat1(
+        choice(
+            /[^{\n]/,
+            /\{[^{\n]/,
+        ),
+    )
+
 
 module.exports = function make_grammar(dialect) {
     return grammar({
@@ -78,11 +92,16 @@ module.exports = function make_grammar(dialect) {
 
             _block: ($) => choice($.text, $._action),
 
-            text: ($) =>
+            text: $ =>
                 choice(
-                    // forbid '{{', the rest is valid
-                    /[^{]+/,
-                    /\{/
+                    // identify text enclosed in square brackets as coherent text
+                    token(seq("[", notDoubleBracketsNoNewline, "]")),
+                    // identify text enclosed in double quotes as coherent text
+                    token(seq("\"", notDoubleBracketsNoNewline, "\"")),
+                    // identify text enclosed in single quotes as coherent text
+                    token(seq("'", notDoubleBracketsNoNewline, "'")),
+                    token(notDoubleBracketsNoWhitespace),
+                    /./,
                 ),
 
             _action: ($) =>
