@@ -82,7 +82,7 @@ module.exports = function make_grammar(dialect) {
     return grammar({
         name: dialect,
         conflicts: $ => [
-            // conflict between a template in an else if clause and the beginning of the 
+            // conflict between a template in an else if clause and the beginning of the
             // else clause in not solveable with LR(1)
             [$._else_clause],
             [$._else_if_clause],
@@ -102,6 +102,7 @@ module.exports = function make_grammar(dialect) {
                     token(seq("'", notDoubleBracketsNoNewline, "'")),
                     token(notDoubleBracketsNoWhitespace),
                     /./,
+                    /\r\n/,
                 ),
 
             _action: ($) =>
