@@ -76,6 +76,10 @@
           "named": true
         },
         {
+          "type": "unfinished_selector_expression",
+          "named": true
+        },
+        {
           "type": "variable",
           "named": true
         },
@@ -160,6 +164,10 @@
           },
           {
             "type": "true",
+            "named": true
+          },
+          {
+            "type": "unfinished_selector_expression",
             "named": true
           },
           {
@@ -258,6 +266,10 @@
           },
           {
             "type": "true",
+            "named": true
+          },
+          {
+            "type": "unfinished_selector_expression",
             "named": true
           },
           {
@@ -372,6 +384,10 @@
           },
           {
             "type": "true",
+            "named": true
+          },
+          {
+            "type": "unfinished_selector_expression",
             "named": true
           },
           {
@@ -493,6 +509,10 @@
           "named": true
         },
         {
+          "type": "unfinished_selector_expression",
+          "named": true
+        },
+        {
           "type": "variable",
           "named": true
         },
@@ -609,6 +629,10 @@
           },
           {
             "type": "true",
+            "named": true
+          },
+          {
+            "type": "unfinished_selector_expression",
             "named": true
           },
           {
@@ -809,6 +833,10 @@
             "named": true
           },
           {
+            "type": "unfinished_selector_expression",
+            "named": true
+          },
+          {
             "type": "variable",
             "named": true
           },
@@ -904,6 +932,10 @@
           },
           {
             "type": "true",
+            "named": true
+          },
+          {
+            "type": "unfinished_selector_expression",
             "named": true
           },
           {
@@ -1018,6 +1050,10 @@
           },
           {
             "type": "true",
+            "named": true
+          },
+          {
+            "type": "unfinished_selector_expression",
             "named": true
           },
           {
@@ -1151,6 +1187,10 @@
             "named": true
           },
           {
+            "type": "unfinished_selector_expression",
+            "named": true
+          },
+          {
             "type": "variable",
             "named": true
           },
@@ -1217,6 +1257,10 @@
           },
           {
             "type": "selector_expression",
+            "named": true
+          },
+          {
+            "type": "unfinished_selector_expression",
             "named": true
           }
         ]
@@ -1297,6 +1341,10 @@
         },
         {
           "type": "true",
+          "named": true
+        },
+        {
+          "type": "unfinished_selector_expression",
           "named": true
         },
         {
@@ -1416,6 +1464,10 @@
           },
           {
             "type": "true",
+            "named": true
+          },
+          {
+            "type": "unfinished_selector_expression",
             "named": true
           },
           {
@@ -1549,6 +1601,10 @@
             "named": true
           },
           {
+            "type": "unfinished_selector_expression",
+            "named": true
+          },
+          {
             "type": "variable",
             "named": true
           },
@@ -1644,6 +1700,10 @@
           },
           {
             "type": "true",
+            "named": true
+          },
+          {
+            "type": "unfinished_selector_expression",
             "named": true
           },
           {
@@ -1765,6 +1825,10 @@
             "named": true
           },
           {
+            "type": "unfinished_selector_expression",
+            "named": true
+          },
+          {
             "type": "variable",
             "named": true
           },
@@ -1795,51 +1859,7 @@
         "required": true,
         "types": [
           {
-            "type": "assignment",
-            "named": true
-          },
-          {
-            "type": "chained_pipeline",
-            "named": true
-          },
-          {
-            "type": "dot",
-            "named": true
-          },
-          {
-            "type": "false",
-            "named": true
-          },
-          {
             "type": "field",
-            "named": true
-          },
-          {
-            "type": "float_literal",
-            "named": true
-          },
-          {
-            "type": "function_call",
-            "named": true
-          },
-          {
-            "type": "imaginary_literal",
-            "named": true
-          },
-          {
-            "type": "int_literal",
-            "named": true
-          },
-          {
-            "type": "interpreted_string_literal",
-            "named": true
-          },
-          {
-            "type": "method_call",
-            "named": true
-          },
-          {
-            "type": "nil",
             "named": true
           },
           {
@@ -1847,27 +1867,11 @@
             "named": true
           },
           {
-            "type": "raw_string_literal",
-            "named": true
-          },
-          {
-            "type": "rune_literal",
-            "named": true
-          },
-          {
             "type": "selector_expression",
             "named": true
           },
           {
-            "type": "true",
-            "named": true
-          },
-          {
             "type": "variable",
-            "named": true
-          },
-          {
-            "type": "variable_definition",
             "named": true
           }
         ]
@@ -1979,6 +1983,10 @@
           "named": true
         },
         {
+          "type": "unfinished_selector_expression",
+          "named": true
+        },
+        {
           "type": "variable",
           "named": true
         },
@@ -2070,6 +2078,10 @@
             "named": true
           },
           {
+            "type": "unfinished_selector_expression",
+            "named": true
+          },
+          {
             "type": "variable",
             "named": true
           },
@@ -2099,6 +2111,34 @@
     "type": "text",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "unfinished_selector_expression",
+    "named": true,
+    "fields": {
+      "operand": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "field",
+            "named": true
+          },
+          {
+            "type": "parenthesized_pipeline",
+            "named": true
+          },
+          {
+            "type": "selector_expression",
+            "named": true
+          },
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      }
+    }
   },
   {
     "type": "variable",
@@ -2190,6 +2230,10 @@
           },
           {
             "type": "true",
+            "named": true
+          },
+          {
+            "type": "unfinished_selector_expression",
             "named": true
           },
           {
@@ -2323,6 +2367,10 @@
             "named": true
           },
           {
+            "type": "unfinished_selector_expression",
+            "named": true
+          },
+          {
             "type": "variable",
             "named": true
           },
@@ -2418,6 +2466,10 @@
           },
           {
             "type": "true",
+            "named": true
+          },
+          {
+            "type": "unfinished_selector_expression",
             "named": true
           },
           {
@@ -2532,6 +2584,10 @@
           },
           {
             "type": "true",
+            "named": true
+          },
+          {
+            "type": "unfinished_selector_expression",
             "named": true
           },
           {
