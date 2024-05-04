@@ -10,16 +10,18 @@ Valid curly brackets combination inside text block
     }}}
 {{ end }}
 ---
+
 (template
-    (if_action
-        (function_call (identifier))
-        (text)
-        (text)
-        (text)
-        (text)
-        (text)
-        (text)
-        (text)))
+  (if_action
+    (function_call
+      (identifier))
+    (text)
+    (text)
+    (text)
+    (text)
+    (text)
+    (text)
+    (text)))
 
 ====================================
 Invalid curly brackets combination inside text block
@@ -28,8 +30,9 @@ Invalid curly brackets combination inside text block
     {{
 {{ end }}
 ---
+
 (template
-    (if_action
-        (function_call (identifier))
-        (text)
-        (ERROR)))
+  (if_action
+    (function_call
+      (identifier))
+    (ERROR)))

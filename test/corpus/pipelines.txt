@@ -3,167 +3,177 @@ Function without arguments
 ====================================
 {{ functionName }}
 ---
+
 (template
-    (function_call
-        (identifier)))
+  (function_call
+    (identifier)))
 
 ====================================
 Function with argument
 ====================================
 {{ functionName $ }}
 ---
+
 (template
-    (function_call
-        (identifier)
-        (argument_list
-            (variable))))
+  (function_call
+    (identifier)
+    (argument_list
+      (variable))))
 
 ====================================
 Function with arguments
 ====================================
 {{ functionName $ . .Field.Field2 1 }}
 ---
+
 (template
-    (function_call
-        (identifier)
-        (argument_list
-            (variable)
-            (dot)
-            (selector_expression
-                (field
-                    (identifier))
-                (field_identifier))
-            (int_literal))))
+  (function_call
+    (identifier)
+    (argument_list
+      (variable)
+      (dot)
+      (selector_expression
+        (field
+          (identifier))
+        (field_identifier))
+      (int_literal))))
 
 ====================================
 Method without arguments
 ====================================
 {{ .Method }}
 ---
+
 (template
-    (field (identifier)))
+  (field
+    (identifier)))
 
 ====================================
 Method with argument
 ====================================
 {{ .Method $ }}
 ---
+
 (template
-    (method_call
-        (field
-            (identifier))
-        (argument_list
-            (variable))))
+  (method_call
+    (field
+      (identifier))
+    (argument_list
+      (variable))))
 
 ====================================
 Method with arguments
 ====================================
 {{ .Method $ . .Field.Field2 1 }}
 ---
+
 (template
-    (method_call
+  (method_call
+    (field
+      (identifier))
+    (argument_list
+      (variable)
+      (dot)
+      (selector_expression
         (field
-            (identifier))
-        (argument_list
-            (variable)
-            (dot)
-            (selector_expression
-                (field (identifier))
-                (field_identifier))
-            (int_literal))))
+          (identifier))
+        (field_identifier))
+      (int_literal))))
 
 ====================================
 Method on a field without arguments
 ====================================
 {{ .Field.Method }}
 ---
+
 (template
-    (selector_expression
-        (field
-            (identifier))
-        (field_identifier)))
+  (selector_expression
+    (field
+      (identifier))
+    (field_identifier)))
 
 ====================================
 Method on a field with arguments
 ====================================
 {{ .Field.Method $ . .Field.Field2 1 }}
 ---
+
 (template
-    (method_call
-        (selector_expression
-            (field
-                (identifier))
-            (field_identifier))
-        (argument_list
-            (variable)
-            (dot)
-            (selector_expression
-                (field
-                    (identifier))
-                (field_identifier))
-            (int_literal))))
+  (method_call
+    (selector_expression
+      (field
+        (identifier))
+      (field_identifier))
+    (argument_list
+      (variable)
+      (dot)
+      (selector_expression
+        (field
+          (identifier))
+        (field_identifier))
+      (int_literal))))
 
 ====================================
 Unfished selector_expression
 ====================================
 {{ .Field. }}
 ---
+
 (template
-    (unfished_selector_expression
-        (field
-            (identifier))
-        ))
+  (unfinished_selector_expression
+    (field
+      (identifier))))
 
 ====================================
 Unfished selector_expression in argument_list
 ====================================
 {{ not .Field. }}
 ---
+
 (template
   (function_call
     (identifier)
     (argument_list
-      (unfished_selector_expression
+      (unfinished_selector_expression
         (field
-            (identifier))
-        )
-      )))
+          (identifier))))))
+
 ====================================
 Unfished selector_expression in argument_list with parenthesis
 ====================================
 {{ not (.Field. ) }}
 ---
+
 (template
   (function_call
     (identifier)
     (argument_list
-    (parenthesized_pipeline
-      (unfished_selector_expression
-        (field
-            (identifier))
-        )
-        )
-    )))
+      (parenthesized_pipeline
+        (unfinished_selector_expression
+          (field
+            (identifier)))))))
 
 ====================================
 Unfished selector_expression in argument_list of method
 ====================================
 {{ .Field .Field. }}
 ---
+
 (template
   (method_call
-    (field (identifier))
+    (field
+      (identifier))
     (argument_list
-      (unfished_selector_expression
+      (unfinished_selector_expression
         (field
-            (identifier))
-        ))))
+          (identifier))))))
 
 ====================================
 Selector expression on a parenthesized pipeline
 ====================================
 {{ (pipeline).Field }}
 ---
+
 (template
   (selector_expression
     (parenthesized_pipeline
