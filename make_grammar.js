@@ -65,15 +65,15 @@ const PREC = {
     imaginaryLiteral = seq(choice(decimalDigits, intLiteral, floatLiteral), 'i'),
     notDoubleBracketsNoWhitespace = repeat1(
         choice(
-            /[^{ \t\n]/,
-            /\{[^{ \t\n]/,
+            /[^{ \t\n\r]/,
+            /\{[^{ \t\n\r]/,
         ),
     ),
 
     notDoubleBracketsNoNewline = repeat1(
         choice(
-            /[^{\n]/,
-            /\{[^{\n]/,
+            /[^{\n\r]/,
+            /\{[^{\n\r]/,
         ),
     )
 
@@ -288,7 +288,7 @@ module.exports = function make_grammar(dialect) {
 
             method_call: ($) =>
                 seq(
-                    field('method', choice($.field, $.selector_expression, $.unfished_selector_expression)),
+                    field('method', choice($.field, $.selector_expression, $.unfinished_selector_expression)),
                     field('arguments', $.argument_list)
                 ),
 
@@ -318,7 +318,7 @@ module.exports = function make_grammar(dialect) {
                         $.field,
                         $.variable,
                         $.selector_expression,
-                        $.unfished_selector_expression
+                        $.unfinished_selector_expression
                     )
                 ),
 
@@ -344,7 +344,7 @@ module.exports = function make_grammar(dialect) {
              * https://github.com/tree-sitter/tree-sitter/issues/2404
              *
              * */
-            unfished_selector_expression: ($) =>
+            unfinished_selector_expression: ($) =>
                 seq(
                     field('operand',
                         choice($.parenthesized_pipeline, $.field, $.variable, $.selector_expression)),
