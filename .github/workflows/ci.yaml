@@ -5,6 +5,7 @@ on:
       - "master"
       - "helm-ls"
   pull_request:
+  workflow_dispatch:
 jobs:
   test:
     runs-on: ${{ matrix.os }}
