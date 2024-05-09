@@ -129,11 +129,11 @@
               "members": [
                 {
                   "type": "PATTERN",
-                  "value": "[^{ \\t\\n\\r]"
+                  "value": "[^{ \\t]"
                 },
                 {
                   "type": "PATTERN",
-                  "value": "\\{[^{ \\t\\n\\r]"
+                  "value": "\\{[^{ \\t]"
                 }
               ]
             }
@@ -3672,3 +3672,4 @@
   "inline": [],
   "supertypes": []
 }
+
