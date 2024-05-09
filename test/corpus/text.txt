@@ -18,7 +18,6 @@ Valid curly brackets combination inside text block
         (text)
         (text)
         (text)
-        (text)
         (text)))
 
 ====================================
@@ -81,7 +80,6 @@ test: "value"
       (identifier))
     (field_identifier))
   (text)
-  (text)
   (text))
 
 ================================================================================
@@ -91,7 +89,6 @@ apiVersion: apps/v1
 kind: Deployment
 ---
 (template
-  (text)
   (text)
   (text)
   (text))
@@ -110,7 +107,6 @@ hello: "world"
 foo: "bar"
 ---
 (template
-  (text)
   (text)
   (text)
   (text))

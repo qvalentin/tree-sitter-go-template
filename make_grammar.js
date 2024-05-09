@@ -65,8 +65,8 @@ const PREC = {
     imaginaryLiteral = seq(choice(decimalDigits, intLiteral, floatLiteral), 'i'),
     notDoubleBracketsNoWhitespace = repeat1(
         choice(
-            /[^{ \t\n\r]/,
-            /\{[^{ \t\n\r]/,
+            /[^{ \t]/,
+            /\{[^{ \t]/,
         ),
     ),
 
@@ -102,7 +102,6 @@ module.exports = function make_grammar(dialect) {
                     token(seq("'", notDoubleBracketsNoNewline, "'")),
                     token(notDoubleBracketsNoWhitespace),
                     /./,
-                    /\r\n/,
                 ),
 
             _action: ($) =>
