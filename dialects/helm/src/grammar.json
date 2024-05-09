@@ -140,12 +140,15 @@
           }
         },
         {
-          "type": "PATTERN",
-          "value": "."
+          "type": "TOKEN",
+          "content": {
+            "type": "PATTERN",
+            "value": "\\r\\n"
+          }
         },
         {
           "type": "PATTERN",
-          "value": "\\r\\n"
+          "value": "."
         }
       ]
     },
