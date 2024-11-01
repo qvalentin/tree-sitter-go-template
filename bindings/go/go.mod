@@ -1,4 +1,4 @@
-module github.com/qvalentin/tree-sitter-go-template
+module github.com/qvalentin/tree-sitter-go-template/bindings/go
 
 go 1.22
 
