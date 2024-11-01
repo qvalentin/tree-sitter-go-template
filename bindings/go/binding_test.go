@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/qvalentin/tree-sitter-gotmpl"
+	"github.com/qvalentin/tree-sitter-go-template"
 	sitter "github.com/smacker/go-tree-sitter"
 )
 

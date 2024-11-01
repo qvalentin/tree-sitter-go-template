@@ -1,4 +1,4 @@
-module github.com/qvalentin/tree-sitter-gotmpl
+module github.com/qvalentin/tree-sitter-go-template
 
 go 1.22
 
