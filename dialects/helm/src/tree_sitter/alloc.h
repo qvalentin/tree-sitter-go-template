@@ -12,17 +12,10 @@ extern "C" {
 // Allow clients to override allocation functions
 #ifdef TREE_SITTER_REUSE_ALLOCATOR
 
-<<<<<<< HEAD
-extern void *(*ts_current_malloc)(size_t);
-extern void *(*ts_current_calloc)(size_t, size_t);
-extern void *(*ts_current_realloc)(void *, size_t);
-extern void (*ts_current_free)(void *);
-=======
 extern void *(*ts_current_malloc)(size_t size);
 extern void *(*ts_current_calloc)(size_t count, size_t size);
 extern void *(*ts_current_realloc)(void *ptr, size_t size);
 extern void (*ts_current_free)(void *ptr);
->>>>>>> ab4a8c4 (chore(dependencies): tree-sitter 0.24 (#29))
 
 #ifndef ts_malloc
 #define ts_malloc  ts_current_malloc
