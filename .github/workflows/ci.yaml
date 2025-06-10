@@ -6,10 +6,6 @@ on:
       - "helm-ls"
   pull_request:
   workflow_dispatch:
-    push:
-        branches:
-            - 'master'
-    pull_request:
 jobs:
   test:
     runs-on: ${{ matrix.os }}
@@ -53,8 +49,6 @@ jobs:
         steps:
             - uses: actions/checkout@v3
             - run: npx prettier --check *.js
-
-
 
   test-windows:
     runs-on: windows-latest
