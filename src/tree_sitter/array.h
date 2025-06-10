@@ -14,10 +14,7 @@ extern "C" {
 #include <string.h>
 
 #ifdef _MSC_VER
-<<<<<<< HEAD
-=======
 #pragma warning(push)
->>>>>>> ab4a8c4 (chore(dependencies): tree-sitter 0.24 (#29))
 #pragma warning(disable : 4101)
 #elif defined(__GNUC__) || defined(__clang__)
 #pragma GCC diagnostic push
@@ -282,11 +279,7 @@ static inline void _array__splice(Array *self, size_t element_size,
 #define _compare_int(a, b) ((int)*(a) - (int)(b))
 
 #ifdef _MSC_VER
-<<<<<<< HEAD
-#pragma warning(default : 4101)
-=======
 #pragma warning(pop)
->>>>>>> ab4a8c4 (chore(dependencies): tree-sitter 0.24 (#29))
 #elif defined(__GNUC__) || defined(__clang__)
 #pragma GCC diagnostic pop
 #endif
