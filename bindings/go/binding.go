@@ -7,6 +7,7 @@ import "C"
 import (
 	"unsafe"
 
+	_ "github.com/qvalentin/tree-sitter-go-template/src"
 	sitter "github.com/smacker/go-tree-sitter"
 )
 
