@@ -1,3 +1,4 @@
+// Package src is a dummy package to make sure c files are included when vendoring
 package src
 
 // #cgo CFLAGS: -std=c11 -fPIC

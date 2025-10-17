@@ -1,7 +1,8 @@
 package tree_sitter_gotemplate
 
-// #cgo CFLAGS: -std=c11 -fPIC -I../../src/
-// #include "../../src/parser.c"
+// #cgo CFLAGS: -std=c11 -fPIC -I../../src
+// #include "tree_sitter/parser.h"
+// TSLanguage *tree_sitter_gotmpl(void);
 import "C"
 
 import (
