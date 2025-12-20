@@ -22,7 +22,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_action"
+          "name": "action"
         }
       ]
     },
@@ -43,7 +43,7 @@
         }
       ]
     },
-    "_action": {
+    "action": {
       "type": "PREC",
       "value": 2,
       "content": {
