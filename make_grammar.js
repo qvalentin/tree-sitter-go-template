@@ -89,7 +89,7 @@ module.exports = function make_grammar(dialect) {
         rules: {
             template: ($) => repeat($._block),
 
-            _block: ($) => choice($.yaml_no_injection_text, $.text, $._action),
+            _block: ($) => choice($.yaml_no_injection_text, $.text, $.action),
 
             // This rule is a workaround to fix https://github.com/ngalaiko/tree-sitter-go-template/issues/23
             // by creating a new node type that is not used for injections of the yaml language.
@@ -104,7 +104,7 @@ module.exports = function make_grammar(dialect) {
                     /\{/
                 ),
 
-            _action: ($) =>
+            action: ($) =>
                 prec(
                     2,
                     choice(
