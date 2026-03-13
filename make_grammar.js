@@ -334,8 +334,8 @@ module.exports = function make_grammar(dialect) {
                 prec.right(
                     seq(
                         $._pipeline,
-                        repeat(seq(' ', $._pipeline)),
-                        optional(' ')
+                        repeat(seq(/\s+/, $._pipeline)),
+                        optional(/\s+/)
                     )
                 ),
 
