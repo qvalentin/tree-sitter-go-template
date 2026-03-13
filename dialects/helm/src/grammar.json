@@ -928,8 +928,8 @@
               "type": "SEQ",
               "members": [
                 {
-                  "type": "STRING",
-                  "value": " "
+                  "type": "PATTERN",
+                  "value": "\\s+"
                 },
                 {
                   "type": "SYMBOL",
@@ -942,8 +942,8 @@
             "type": "CHOICE",
             "members": [
               {
-                "type": "STRING",
-                "value": " "
+                "type": "PATTERN",
+                "value": "\\s+"
               },
               {
                 "type": "BLANK"
