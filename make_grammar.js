@@ -1,3 +1,5 @@
+/// <reference types="tree-sitter-cli/dsl" />
+
 const PREC = {
         primary: 1,
         else_if: 1,
