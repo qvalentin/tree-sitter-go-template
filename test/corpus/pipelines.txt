@@ -36,6 +36,38 @@ Function with arguments
             (int_literal))))
 
 ====================================
+Function with arguments and newline
+====================================
+{{ functionName
+"arg1"
+"arg2"
+}}
+---
+(template
+    (function_call
+        (identifier)
+        (argument_list
+            (interpreted_string_literal)
+            (interpreted_string_literal))))
+
+====================================
+Function with arguments and tab
+====================================
+{{ functionName    $ . .Field.Field2 1 }}
+---
+(template
+    (function_call
+        (identifier)
+        (argument_list
+            (variable)
+            (dot)
+            (selector_expression
+                (field
+                    (identifier))
+                (field_identifier))
+            (int_literal))))
+
+====================================
 Method without arguments
 ====================================
 {{ .Method }}
